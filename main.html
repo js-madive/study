@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <title>Script</title>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1><a href="javascript:;">로고</a></h1>
+            <div class="mnavBtnBox">
+                <button type="button" class="mnavBtn mnavOpen">열기</button>
+            </div>
+            <nav class="gnb">
+                <ul class="gnbList">
+                    <li>
+                        <a href="javascript:;">메뉴1</a>
+                        <ul class="gnbListSub">
+                            <li><a href="javascript:;">sub1-1</a></li>
+                            <li><a href="javascript:;">sub1-2</a></li>
+                            <li><a href="javascript:;">sub1-3</a></li>
+                            <li><a href="javascript:;">sub1-4</a></li>
+                            <li><a href="javascript:;">sub1-5</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">메뉴2</a>
+                        <ul class="gnbListSub"> 
+                            <li><a href="javascript:;">sub2-1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">메뉴3</a>
+                        <ul class="gnbListSub">
+                            <li><a href="javascript:;">sub3-1</a></li>
+                            <li><a href="javascript:;">sub3-2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">메뉴4</a>
+                        <ul class="gnbListSub">
+                            <li><a href="javascript:;">sub4-1</a></li>
+                            <li><a href="javascript:;">sub4-2</a></li>
+                            <li><a href="javascript:;">sub4-3</a></li>
+                            <li><a href="javascript:;">sub4-4</a></li>
+                            <li><a href="javascript:;">sub4-5</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">메뉴5</a>
+                        <ul class="gnbListSub">
+                            <li><a href="javascript:;">sub5-1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">메뉴6</a>
+                        <ul class="gnbListSub">
+                            <li><a href="javascript:;">sub6-1</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mnavBtnBox">
+                    <button type="button" class="mnavBtn mnavClose">닫기</button>
+                </div>
+            </nav>
+            <div class="dim"></div>
+        </header>
+        <div class="container">
+            <div class="slide">
+                <div class="slideBox">
+                    <div class="slideList slide1">
+                        <img src="img/1.png" alt="슬라이드1">
+                    </div>
+                    <div class="slideList slide2">
+                        <img src="img/2.png" alt="슬라이드2">
+                    </div>
+                    <div class="slideList slide3">
+                        <img src="img/3.png" alt="슬라이드3">
+                    </div>
+                    <div class="slideList slide4">
+                        <img src="img/4.png" alt="슬라이드4">
+                    </div>
+                </div>
+                <div class="slideNum">
+                    <p><span class="nowNum" id="nowNum"></span> / <span class="allNum" id="allNum"></span></p>
+                </div>
+                <div class="slideBtnBox">
+                    <button type="button" class="slideBtn slidePrev">이전</button>
+                    <button type="button" class="slideBtn slideNext">다음</button>
+                </div>
+                <div class="slidePage">
+                    <ul class="slidePageList">
+                        <li><button type="button">1</button></li>
+                        <li><button type="button">2</button></li>
+                        <li><button type="button">3</button></li>
+                        <li><button type="button">4</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="loopSlide">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div>
+                                1
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                2
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                3
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                4
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab">
+                <ul class="tabList">
+                    <li>
+                        <a href="javascript:;" class="tabMenu">tab1</a>
+                        <div class="tabCont">
+                            tabCont1
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tabMenu">tab2</a>
+                        <div class="tabCont">
+                            tabCont2
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="tabMenu">tab3</a>
+                        <div class="tabCont">
+                            tabCont3
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="accordionBox">
+                <ul class="accordion">
+                    <li class="accordionSub">
+                        <a href="javascript:;" class="accordionTit">1</a>
+                        <ul class="accordionsub2">
+                            <li><a href="javascript:;">1-1</a></li>
+                            <li><a href="javascript:;">1-2</a></li>
+                            <li><a href="javascript:;">1-3</a></li>
+                        </ul>
+                    </li>
+                    <li class="accordionSub">
+                        <a href="javascript:;" class="accordionTit">2</a>
+                        <ul class="accordionsub2">
+                            <li><a href="javascript:;">2-1</a></li>
+                            <li><a href="javascript:;">2-2</a></li>
+                            <li><a href="javascript:;">2-3</a></li>
+                            <li><a href="javascript:;">2-4</a></li>
+                        </ul>
+                    </li>
+                    <li class="accordionSub">
+                        <a href="javascript:;" class="accordionTit">3</a>
+                        <ul class="accordionsub2">
+                            <li><a href="javascript:;">3-1</a></li>
+                            <li><a href="javascript:;">3-2</a></li>
+                            <li><a href="javascript:;">3-3</a></li>
+                            <li><a href="javascript:;">3-4</a></li>
+                            <li><a href="javascript:;">3-5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="arrco2">
+                <button type="button" class="allControl">
+                    <span>전체펼침</span>
+                </button>
+                <ul class="arrcoBox">
+                    <li class="arrcoList">
+                        <button type="button" class="arrcoBtn"><span>1번</span></button>
+                        <div class="arrcoCont">
+                            <img src="https://image.lguplus.com/static/pc-contents/cv2022/images/indv/it1231ct1221-img-13.png" alt="">
+                        </div>
+                    </li>
+                    <li class="arrcoList">
+                        <button type="button" class="arrcoBtn"><span>2번</span></button>
+                        <div class="arrcoCont">
+                            <img src="https://image.lguplus.com/static/pc-contents/cv2022/images/indv/it1231ct1221-img-11.png" alt="">
+                        </div>
+                    </li>
+                    <li class="arrcoList">
+                        <button type="button" class="arrcoBtn"><span>3번</span></button>
+                        <div class="arrcoCont">
+                            <div class="arrco3">
+                                <ul class="arrcoBox3">
+                                    <li class="arrcoList3">
+                                        <button type="button" class="arrcoBtn3"><span>1-1번</span></button>
+                                        <div class="arrcoCont3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum mollitia exercitationem debitis veniam fugiat rerum dolor illum autem porro quia vero necessitatibus error delectus, maxime reprehenderit accusamus illo praesentium. Omnis?
+                                        </div>
+                                    </li>
+                                    <li class="arrcoList3">
+                                        <button type="button" class="arrcoBtn3"><span>1-2번</span></button>
+                                        <div class="arrcoCont3">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit pariatur autem facere nesciunt labore veritatis temporibus asperiores blanditiis laborum. Delectus in provident iusto atque obcaecati doloremque laboriosam unde facere reprehenderit?
+                                        </div>
+                                    </li>
+                                    <li class="arrcoList3">
+                                        <button type="button" class="arrcoBtn3"><span>1-3번</span></button>
+                                        <div class="arrcoCont3">
+                                            정보정보정보Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa natus asperiores tempora maiores excepturi soluta, magni assumenda autem reiciendis obcaecati, hic ducimus veniam expedita distinctio necessitatibus aperiam rerum voluptatibus mollitia.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="arrco3">
+                <ul class="arrcoBox3">
+                    <li class="arrcoList3">
+                        <button type="button" class="arrcoBtn3"><span>1번</span></button>
+                        <div class="arrcoCont3">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum mollitia exercitationem debitis veniam fugiat rerum dolor illum autem porro quia vero necessitatibus error delectus, maxime reprehenderit accusamus illo praesentium. Omnis?
+                        </div>
+                    </li>
+                    <li class="arrcoList3">
+                        <button type="button" class="arrcoBtn3"><span>2번</span></button>
+                        <div class="arrcoCont3">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit pariatur autem facere nesciunt labore veritatis temporibus asperiores blanditiis laborum. Delectus in provident iusto atque obcaecati doloremque laboriosam unde facere reprehenderit?
+                        </div>
+                    </li>
+                    <li class="arrcoList3">
+                        <button type="button" class="arrcoBtn3"><span>3번</span></button>
+                        <div class="arrcoCont3">
+                            정보정보정보Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa natus asperiores tempora maiores excepturi soluta, magni assumenda autem reiciendis obcaecati, hic ducimus veniam expedita distinctio necessitatibus aperiam rerum voluptatibus mollitia.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tooltip">
+                <p class="toolTxt">설명 보기</p>
+                <button type="button" class="toolBtn">?</button>
+                <div class="toolpopBox">
+                    좋아하는 맛이나 향을 더해도 OK<br />소중한 이들을 위한 선물로도 좋아요
+                    <button type="button" class="tooltipClose">닫기</button>
+                </div>
+            </div>
+            <div class="search">
+                <p class="searchBox">
+                    <input type="text" class="searchInput">
+                    <button type="button" class="searchRemove">삭제</button>
+                </p>
+                <button type="button" class="searchBtn">검색</button>
+            </div>
+            <div class="sorting">
+                <table>
+                    <thead>
+                        <th><button type="button" class="sortBtn" id="score">순위</button></th>
+                        <th><button type="button" class="sortBtn" id="name">음원명</button></th>
+                        <th><button type="button" class="sortBtn" id="artist">가수</button></th>
+                        <th><button type="button" class="sortBtn" id="date">발매일</button></th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab2">
+                <ul class="tab2box">
+                    <li class="tab2list">
+                        <a href="javascript:;" class="tab2tab">1번</a>
+                        <div class="tab2cont">
+                            <img src="img/t1.jpg" alt="1번" class="tab2img">
+                            <div class="tab2more">
+                                <p class="tab2txt">제목</p>
+                                <p class="tab2subt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum veritatis quam ducimus velit laudantium similique quo quos, harum, commodi accusantium officia ex a libero animi labore nesciunt laborum eum?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab2list">
+                        <a href="javascript:;" class="tab2tab">2번</a>
+                        <div class="tab2cont">
+                            <img src="img/t2.jpg" alt="2번" class="tab2img">
+                            <div class="tab2more">
+                                <p class="tab2txt">제목</p>
+                                <p class="tab2subt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum veritatis quam ducimus velit laudantium similique quo quos, harum, commodi accusantium officia ex a libero animi labore nesciunt laborum eum?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab2list">
+                        <a href="javascript:;" class="tab2tab">3번</a>
+                        <div class="tab2cont">
+                            <img src="img/t3.gif" alt="3번" class="tab2img">
+                            <div class="tab2more">
+                                <p class="tab2txt">제목</p>
+                                <p class="tab2subt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum veritatis quam ducimus velit laudantium similique quo quos, harum, commodi accusantium officia ex a libero animi labore nesciunt laborum eum?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab2list">
+                        <a href="javascript:;" class="tab2tab">4번</a>
+                        <div class="tab2cont">
+                            <img src="img/t4.jfif" alt="4번" class="tab2img">
+                            <div class="tab2more">
+                                <p class="tab2txt">제목</p>
+                                <p class="tab2subt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum veritatis quam ducimus velit laudantium similique quo quos, harum, commodi accusantium officia ex a libero animi labore nesciunt laborum eum?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab2list">
+                        <a href="javascript:;" class="tab2tab">5번</a>
+                        <div class="tab2cont">
+                            <img src="img/t5.jpg" alt="5번" class="tab2img">
+                            <div class="tab2more">
+                                <p class="tab2txt">제목</p>
+                                <p class="tab2subt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum veritatis quam ducimus velit laudantium similique quo quos, harum, commodi accusantium officia ex a libero animi labore nesciunt laborum eum?</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="lazyload">
+                <img data-src="img/lazy1.jpg" alt="lazy1" class="lazy">
+                <img data-src="img/lazy2.jfif" alt="lazy2" class="lazy">
+                <img data-src="img/lazy3.jpg" alt="lazy3" class="lazy">
+                <img data-src="img/lazy4.jfif" alt="lazy4" class="lazy">
+            </div>
+            <div class="dropDown">
+                <p class="dropBtn"><button type="button" value="1번입니다">번호 선택</button></p>
+                <ul class="optionBox">
+                    <li class="optionList"><button type="button" class="optionBtn" value="1번입니다">1번입니다</button></li>
+                    <li class="optionList"><button type="button" class="optionBtn" value="2번입니다">2번입니다</button></li>
+                    <li class="optionList"><button type="button" class="optionBtn" value="3번입니다">3번입니다</button></li>
+                    <li class="optionList"><button type="button" class="optionBtn" value="4번입니다">4번입니다</button></li>
+                    <li class="optionList"><button type="button" class="optionBtn" value="5번입니다">5번입니다</button></li>
+                </ul>
+            </div>
+            <div class="bookmark">
+                <div class="markbtnBox">
+                    <ul class="markBtnList">
+                    </ul>
+                    <!-- <p class="markNull">즐겨찾는 메뉴가 없습니다.</p> -->
+                </div>
+                <button type="button" class="markAdd">추가</button>
+                <button type="button" class="markChange">변경</button>
+                <div class="markPopWrap">
+                    <div class="markPopBox">
+                        <ul class="markPop">
+                            <li>
+                                <label for="mark01" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark01" value="웹툰">
+                                    <span>웹툰</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark02" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark02" value="패션뷰티">
+                                    <span>패션뷰티</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark03" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark03" value="레시피">
+                                    <span>레시피</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark04" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark04" value="리빙">
+                                    <span>리빙</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark05" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark05" value="책방">
+                                    <span>책방</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark06" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark06" value="경제M">
+                                    <span>경제M</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark07" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark07" value="자동차">
+                                    <span>자동차</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark08" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark08" value="엔터">
+                                    <span>엔터</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark09" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark09" value="스포츠">
+                                    <span>스포츠</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark10" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark10" value="뉴스">
+                                    <span>뉴스</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark11" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark11" value="웹툰">
+                                    <span>웹툰</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="mark12" class="markCheck">
+                                    <input type="checkbox" class="mark" id="mark12" value="사전">
+                                    <span>사전</span>
+                                </label>
+                            </li>
+                        </ul>
+                        <p class="markPopBtn">
+                            <button type="button" class="markPopCancel">취소</button>
+                            <button type="button" class="markPopSave">저장</button>
+                        </p>
+                    </div>
+                    <div class="markPopDim"></div>
+                </div>
+            </div>
+            <div class="sorting tableip">
+                <div class="tableIns">
+                    <input type="text" id="prod" placeholder="상품명을 입력해주세요">
+                    <input type="text" id="cate" placeholder="카테고리를 입력해주세요">
+                    <input type="text" id="sale" placeholder="행사를 입력해주세요">
+                    <button type="button" class="tableIbtn tableIadd">추가</button>
+                </div>
+                <table>
+                    <thead>
+                        <th><button type="button" class="sortBtn2" id="num">번호</button></th>
+                        <th><button type="button" class="sortBtn2" id="check">삭제여부</button></th>
+                        <th><button type="button" class="sortBtn2" id="prod">상품명</button></th>
+                        <th><button type="button" class="sortBtn2" id="cate">카테고리</button></th>
+                        <th><button type="button" class="sortBtn2" id="sale">행사</button></th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button type="button" class="tableIbtn tableIdel">삭제</button>
+            </div>
+            <div class="toast">
+                <button type="button" class="toastBtn" id="buy" value="구매 완료">구매</button>
+                <button type="button" class="toastBtn" id="sell" value="판매 완료">판매</button>
+                <button type="button" class="toastBtn" id="cancel" value="취소 완료">취소</button>
+                <button type="button" class="toastBtn" id="cart" value="장바구니">장바구니</button>
+                <button type="button" class="toastBtn" id="create" value="등록 완료">등록</button>
+                <button type="button" class="toastBtn" id="delete" value="삭제 완료">삭제</button>
+            </div>
+            <div class="toastPop">
+            </div>
+            <div class="layerPop">
+                <button class="layerPopOpen">레이어팝업 열기</button>
+                <div class="layerPopBox" style="display:none;">
+                    <div class="layerDim"></div>
+                    <div class="layerWrap">
+                        <div class="layerCon">
+                            <p>제목</p>
+                            <span>내용</span>
+                        </div>
+                        <div class="layerBtn">
+                            <button type="button" class="layerPopClose">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="test">
+                <div class="dd">anananan무무무무
+                    <p class="pp">안능</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</html>
