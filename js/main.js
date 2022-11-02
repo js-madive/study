@@ -20,7 +20,6 @@ function init() {
     toast();
     layerPop();
 }
-
 /* header */
 function pcGnb() {
     const header = document.querySelector('header');
@@ -800,7 +799,6 @@ function bookmark() {
     const markPopCancel = document.querySelector('.markPopCancel');
     const markPopSave = document.querySelector('.markPopSave');
     const markCheck = document.getElementsByClassName('mark');
-    const markDeleteBtn = document.querySelector('.markBtnList button');
 
     let markList = new Array();
 
@@ -832,14 +830,6 @@ function bookmark() {
         });
     }
 
-    function markDelete() {
-        for (pp = 0; pp < markDeleteBtn.length; pp++) {
-            markDeleteBtn[pp].addEventListener('click', function() {
-                console.log('삭제');
-            });
-        }
-    }
-
     function markPopInit() {  // 팝업 닫기, 체크박스 체크해제 + 배열 요소 초기화
         markList.splice(0, markList.length);
         for (q = 0; q < markCheck.length; q++) {
@@ -862,7 +852,6 @@ function bookmark() {
         markPopWrap.classList.add('markpopOn');
         body.classList.add('bof');
     });
-
 
     markPopCancel.addEventListener('click', function() { // 취소 버튼
         markPopClose();
@@ -887,7 +876,32 @@ function bookmark() {
         markBtnList.innerHTML = markData;
 
         markPopClose();
+        markDelete();
     });
+
+    function markDelete() {
+        let markDeleteBtn = document.querySelectorAll('.markBtnList button');
+        console.log(markDeleteBtn);
+
+        for (pp = 0; pp < markDeleteBtn.length; pp++) {
+            markDeleteBtn[pp].addEventListener('click', function() {
+                if(markList.length > 0) {
+                    let BmText = this.parentNode.children[0].innerText;
+                    let BmIdx = markList.findIndex(function(key) {return key.value === BmText});
+                    markList.splice(BmIdx, 1);
+                    this.parentNode.parentNode.remove();
+                    //let bmMark = markCheck.findIndex(function(key) {return key.value === BmText});
+
+                    markDeleteBtn = document.querySelectorAll('.markBtnList button');
+                } else {
+                    markPopInit();
+                    console.log('?')
+                }
+
+                console.log(markList, markDeleteBtn, markCheck.item());
+            });
+        }
+    }
 }
 
 function tableip() {
