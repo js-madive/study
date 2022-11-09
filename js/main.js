@@ -861,7 +861,7 @@ function bookmark() {
         function markArray(markList) {
             mark = '';
             markList.forEach(item => {
-                mark += '<li>'
+                mark += '<li class="'+ item.id +'">'
                 +           '<a href="javascript:;" class="markCheck">'
                 +               '<span>' + item.value + '</span>'
                 +               '<button>삭제</button>'
@@ -881,24 +881,21 @@ function bookmark() {
 
     function markDelete() {
         let markDeleteBtn = document.querySelectorAll('.markBtnList button');
-        console.log(markDeleteBtn);
 
         for (pp = 0; pp < markDeleteBtn.length; pp++) {
             markDeleteBtn[pp].addEventListener('click', function() {
                 if(markList.length > 0) {
-                    let BmText = this.parentNode.children[0].innerText;
-                    let BmIdx = markList.findIndex(function(key) {return key.value === BmText});
+                    let Bm = this.parentNode.parentNode;
+                    let BmText = Bm.className;
+                    let BmIdx = markList.findIndex(function(key) {return key.id === BmText});
+                    let BmCheck = markCheck.namedItem(BmText);               
                     markList.splice(BmIdx, 1);
-                    this.parentNode.parentNode.remove();
-                    //let bmMark = markCheck.findIndex(function(key) {return key.value === BmText});
+                    BmCheck.checked = false;
+                    Bm.remove();
 
                     markDeleteBtn = document.querySelectorAll('.markBtnList button');
-                } else {
-                    markPopInit();
-                    console.log('?')
-                }
-
-                console.log(markList, markDeleteBtn, markCheck.item());
+                } 
+                //console.log(markList, markDeleteBtn);
             });
         }
     }
