@@ -36,7 +36,7 @@ html,body {
   position:relative; 
   width:100%; 
   height:200vh; 
-  background:$back-color;
+  background:#fff;
   font-weight:400;
   .tit01 {
     margin-top:150px;
@@ -124,32 +124,9 @@ html,body {
       border:1px solid #fff;
     }
   }
-  .cont1-bottom {
-    position:relative; 
-    display:flex; 
-    justify-content:center; 
-    align-items:flex-start; 
-    flex-direction:column;
-    padding-left:15%;
-    height:50%; 
-    z-index:2; 
-    background:transparent;
-    color:#fff;
-    span {
-      display:block;
-    }
-    .cont1-bottom-tit {
-      font-size:52px;
-      font-weight:350;
-      line-height:60px;
-      letter-spacing:0.09em;
-    }
-    .cont1-bottom-sub {
-      margin-top:40px;
-      font-size:20px;
-      line-height:20px;
-    }
-    .cont1-bottom-dim {
+  .cont1-full {
+    height:50%;
+    .cont1-full-dim {
       position:absolute; 
       display:block; 
       content:''; 
@@ -207,25 +184,22 @@ html,body {
     height:100vh;
   }
   .cont3-back-img {
-    position:absolute;
     top:calc(100vh - 100px);
-    left:0;
-    width:100%;
-    height:100vh;
-    background:url(../../assets/img/lazy1.jpg) no-repeat center bottom / cover; 
-    transform:scale(0.7);
-    transform-origin:center top;
-    opacity:1;
-    z-index:1;
-    &.fix {
-      position:fixed;
-    }
+    background-image:url(../../assets/img/lazy1.jpg) no-repeat center bottom / cover; 
   }
 }
 
 .cont4 {
   position:relative;
   height:300vh;
+  &.back-on {
+    .cont4-txt {
+      background:url(../../assets/img/lazy3.jpg) no-repeat center center / cover;
+    }
+    .cont4-back {
+      position:static;
+    }
+  }
   &>div {
     height:calc(300vh / 3);
     font-size:50px;
@@ -241,16 +215,70 @@ html,body {
   }
   .cont4-box {
     position:relative;
+    top:0;
+    left:0;
     width:200%;
     display:flex;
     z-index:1;
     >div {
       width:50%;
     }
-    .cont4-txt {
-      &.back-on {
-        background:url(../../assets/img/lazy3.jpg) no-repeat center center / cover;
-      }
+    .cont4-story {
+      background:beige;
     }
   }
+}
+
+.cont5 {
+  position:relative;
+  height:100vh;
+  background:transparent;
+  .cont5-full {
+    background:#000;
+  }
+}
+
+.full-bg-box {
+  display:flex; 
+  justify-content:center; 
+  align-items:flex-start; 
+  flex-direction:column;
+  padding-left:15%;
+  height:100%; 
+  background:transparent;
+  color:#fff;
+  span {
+    display:block;
+  }
+  .full-bg-txt {
+    position:relative;
+    z-index:2;
+  }
+  .full-bg-tit {
+    font-size:52px;
+    font-weight:350;
+    line-height:60px;
+    letter-spacing:0.09em;
+  }
+  .full-bg-sub {
+    margin-top:40px;
+    font-size:20px;
+    line-height:20px;
+  }
+}
+
+.full-bg-img {
+  position:absolute;
+    top:-100px;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:url(../../assets/img/lazy1.jpg) no-repeat center bottom / cover; 
+    transform:scale(0.7);
+    transform-origin:center top;
+    opacity:1;
+    z-index:1;
+    &.fix {
+      position:fixed;
+    }
 }

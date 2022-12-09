@@ -106,19 +106,19 @@
             </div>
           </div>
         </div>
-        <div class="cont1-bottom">
-          <div class="cont1-bottom-txt">
-            <p class="cont1-bottom-tit">
+        <div class="cont1-full full-bg-box">
+          <div class="full-bg-txt">
+            <p class="full-bg-tit">
               <span>BORN FROM THE ENERGY</span>
               <span>OF MOTHER EARTH</span>
             </p>
-            <p class="cont1-bottom-sub">
+            <p class="full-bg-sub">
               <span>Sulwhasoo’s shining journey toward beauty,</span>
               <span>which began in 1932 to help the beauty in every woman "blossom,"</span>
               <span>can be traced back directly to Mother Earth, the source of all things.</span>
             </p>
           </div>
-          <div class="cont1-bottom-dim"></div>
+          <div class="cont1-full-dim"></div>
         </div>
       </div>
       <div class="cont2">
@@ -134,7 +134,7 @@
         <div class="cont3-box">
           <p><img src="assets/img/t2.jpg" alt=""></p>
         </div>
-        <div class="cont3-back-img"></div>
+        <div class="cont3-back-img full-bg-img"></div>
       </div>
       <div class="cont4">
         <div class="cont4-back"></div>
@@ -142,9 +142,26 @@
           <div class="cont4-txt">
             ㅇㅇㅇ
           </div>
-          <div class="amb-story">
+          <div class="cont4-story">
             12312128371283781273
           </div>
+        </div>
+      </div>
+      <div class="cont5">
+        <div class="cont5-back-img full-bg-img"></div>
+        <div class="cont5-full full-bg-box">
+          <div class="full-bg-txt">
+            <p class="full-bg-tit">
+              <span>마침내 찬란한</span>
+              <span>꽃이 피어나다.</span>
+            </p>
+            <p class="full-bg-sub">
+              <span>Sulwhasoo’s shining journey toward beauty,</span>
+              <span>which began in 1932 to help the beauty in every woman "blossom,"</span>
+              <span>can be traced back directly to Mother Earth, the source of all things.</span>
+            </p>
+          </div>
+          <div class="cont1-full-dim"></div>
         </div>
       </div>
     </div>
@@ -161,7 +178,7 @@
     const cont1 = $('.cont1')
     const cont1offset = $('.cont1').offset().top
     const cont1TopH = $('.cont1-top').innerHeight()
-    const cont1Bottom = $('.cont1-bottom').offset().top
+    const cont1Bottom = $('.cont1-full').offset().top
     const cont1BotH = $('.cont1-top').innerHeight()
 
     const cont2 = $('.cont2')
@@ -175,7 +192,12 @@
 
     const cont4 = $('.cont4')
     const cont4offset = $('.cont4').offset().top
+    const cont4Boxoffset = $('.cont4-box').offset().top
     const cont4H = $('.cont4').innerHeight()
+
+    const cont5 = $('.cont5')
+    const cont5offset = $('.cont5').offset().top
+    const cont5H = $('.cont5').innerHeight()
 
     /* cont1 - fullSlide */
     function fullSlide() {
@@ -215,6 +237,7 @@
       Motion(winH, cont2offset, flowBoxW, 'cont2')
       Motion(winH, cont3offset, cont3H, 'cont3')
       Motion(winH, cont4offset, cont4H, 'cont4')
+      Motion(winH, cont4Boxoffset, cont4H, 'cont4Box')
     })
 
     function Motion(winH, contTop, contHeight, content) {
@@ -235,7 +258,9 @@
         cont3Scale(totalRange, winH)
       } else if(content == 'cont4') {
         cont4Scroll(totalRange, winH)
-      }
+      } else if(content == 'cont4Box') {
+        cont4BoxLeft(totalRange, winH)
+      } 
     }
   
     /* cont1 - scale */
@@ -262,9 +287,9 @@
     function opacityScroll(totalRange, winH) {
 
       if (winH >= cont1Bottom && winH <= cont1Bottom + cont1BotH) {
-        $('.cont1-bottom-dim').css({'opacity':totalRange});
+        $('.cont1-full-dim').css({'opacity':totalRange});
       } else {
-        $('.cont1-bottom-dim').css({'opacity':0});
+        $('.cont1-full-dim').css({'opacity':0});
         return
       } 
     }
@@ -285,9 +310,15 @@
             $('.cont2-flow').css({'transform':'translate(-'+ widthRange  +'px, -'+ totalRange * 50 +'%)'});
           } else {
             $('.cont2-box').css({'position':'absolute', 'top':'auto', 'bottom':'0'})
+            return
           }
+      } else if (winH <= cont2offset){
+        $('.cont2-box').removeAttr('style');
+        $('.cont2-flow').prop('style').removeProperty('transform');
+        return
       } else {
-        $('.cont2-box').css({'position':'absolute', 'top':'0', 'bottom':'auto'})
+        $('.cont2-box').css({'position':'absolute', 'top':'0', 'bottom':'auto'}) 
+        return
       }
     }
 
@@ -299,34 +330,51 @@
         } else {
           return;
         } 
-      } else if (winH <= cont3offset) {
-        $('.cont3-back-img').css({'top':'calc(100vh - 100px)', 'transform':'scale(0.7)'});
-        $('.cont3-back-img').removeClass('fix')
-        return
       } else if (winH >= cont3offset + (cont3H / 2) && winH <= cont3offset + cont3H) {
         $('.cont3-back-img').css({'top':'0', 'transform':'scale('+ (0.7 + totalRange) +')'});
         $('.cont3-back-img').addClass('fix')
-      } else {
+      } else if (winH <= cont3offset) {
+        $('.cont3-back-img').removeAttr('style');
+        $('.cont3-back-img').removeClass('fix')
         return
       }
     }
 
-    /* cont4 - back */
+    /* cont4 - backImg */
     function cont4Scroll(totalRange, winH) {
       if (winH >= cont4offset && winH <= cont4offset + (cont4H / 3)) {
-        console.log(cont4H / 3)
-        $('.cont3-back-img').css({'opacity':1 - (totalRange * 2)});
-        $('.cont4-back').css({'position':'sticky'});
+        $('.cont3-back-img').addClass('fix');
+        $('.cont3-back-img').css({'top':'0','opacity':1 - (totalRange * 3)});
+        cont4.removeClass('back-on');
         $('.cont4-txt').removeClass('back-on');
       } else if(winH >= cont4offset + (cont4H / 3)) {
         $('.cont3-back-img').removeClass('fix')
-        $('.cont4-back').css({'position':'static'});
-        $('.cont4-txt').addClass('back-on');
+        cont4.addClass('back-on');
       } else {
         $('.cont3-back-img').css({'opacity':1});
-        $('.cont4-back').css({'position':'sticky'});
+        cont4.removeClass('back-on');
+        return
       }
     }
+
+    function cont4BoxLeft(totalRange, winH) {
+      if (winH >= cont4Boxoffset && winH <= cont4offset + (cont4H / 3) * 2) {
+        $('.cont4-box').css({'position':'fixed','top':'0','bottom':'auto','left':'-'+totalRange * 300+'%'})
+      } else if (winH >= cont4offset + (cont4H / 3) * 2) {
+        $('.cont4-box').css({'position':'absolute','top':'auto','bottom':'0','left':-100+'%'})
+        if (((totalRange * 300) - 100) <= 100) {
+          $('.cont5-back-img').css({'top':-(200 - (totalRange * 300)) +'px', 'transform':'scale('+ (0.7 + (totalRange / 2)) +')'});
+        } else {
+          return
+        }
+      } else {
+        $('.cont4-box').prop('style').removeProperty('position');
+        $('.cont4-box').css({'top':'0','bottom':'auto','left':0})
+        return
+      }
+    }
+
+    /* cont3 - scale */
   </script>
 </body>
 </html>
