@@ -81,7 +81,21 @@
       </nav>
     </header>
     <div class="container">
-      <div class="intro">dd</div>
+      <div class="intro">
+        <div class="intro-list intro1">
+          로제로제로제로제1111111111111
+        </div>
+        <div class="intro-list intro2">
+          <div class="intro2-txt">
+            <p class="intro2-txt-tit">아름다운여정</p>
+            <p class="intro2-txt-sub">함께www</p>
+          </div>
+        </div>
+        <div class="intro-list intro3">
+          3jqjsksjkdjkdjk
+          세계관스토리만나보세요
+        </div>
+      </div>
       <div class="cont1">
         <div class="cont1-top">
           <div class="cont1-film">
@@ -164,16 +178,33 @@
           <div class="cont1-full-dim"></div>
         </div>
       </div>
+      <div class="cont6">
+        <div class="history">
+          <div class="history-box">
+            <div class="history-list history1"></div>
+            <div class="history-list history2"></div>
+            <div class="history-list history3"></div>
+            <div class="history-list history4"></div>
+            <div class="history-list history5"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script>
     let flowBoxW = 0; // flowBox Width
     let flowLastW = 0; // flowList - last Width
+    let historyBoxW = 0; // historyBoxW Width
     function init() {
       flowBoxWidth()
+      historyBoxWidth()
       fullSlide()
     }
     init()
+
+    const intro = $('.intro')
+    const introOffset = $('.intro').offset().top
+    const introH = $('.intro').innerHeight()
 
     const cont1 = $('.cont1')
     const cont1offset = $('.cont1').offset().top
@@ -198,6 +229,10 @@
     const cont5 = $('.cont5')
     const cont5offset = $('.cont5').offset().top
     const cont5H = $('.cont5').innerHeight()
+
+    const cont6 = $('.cont6')
+    const cont6offset = $('.cont6').offset().top
+    const cont6H = $('.cont6').innerHeight()
 
     /* cont1 - fullSlide */
     function fullSlide() {
@@ -224,20 +259,31 @@
         flowLastW = parseInt($('.flow'+($('.flow-list').length)).innerWidth())
       }
       $('.cont2').css({'height':flowBoxW})
-      $('.cont2-flow').css({'width':flowBoxW})
+    }
+
+    /* cont6 - historyBox width */
+    function historyBoxWidth() {
+      for (h = 0; h < $('.history-list').length; h++) {
+        let historyW = parseInt($('.history'+(h + 1)).outerWidth(true))
+        historyBoxW += historyW
+        historyLastW = parseInt($('.history'+($('.history-list').length)).innerWidth())
+      }
+      $('.cont6').css({'height':historyBoxW})
     }
 
     $(document).scroll(function() {
   
       let winH = $(document).scrollTop()
       
-      // scrollTop, scrollMin, scrollMax, content
+      // scrollTop, obgTop, obgHeight, contentName
+      Motion(winH, introOffset, introH, 'intro')
       Motion(winH, cont1offset, cont1TopH, 'cont1Top')
       Motion(winH, cont1Bottom, cont1BotH, 'cont1Bottom')
       Motion(winH, cont2offset, flowBoxW, 'cont2')
       Motion(winH, cont3offset, cont3H, 'cont3')
       Motion(winH, cont4offset, cont4H, 'cont4')
       Motion(winH, cont4Boxoffset, cont4H, 'cont4Box')
+      Motion(winH, cont6offset, cont6H, 'cont6')
     })
 
     function Motion(winH, contTop, contHeight, content) {
@@ -248,7 +294,9 @@
       let max = -(min * scrollMin)
       let totalRange = (min * winH) + max
 
-      if(content == 'cont1Top') {
+      if(content == 'intro') {
+        introScroll(totalRange, winH)
+      } else if(content == 'cont1Top') {
         cont1Scale(totalRange, winH)
       } else if(content == 'cont1Bottom') {
         opacityScroll(totalRange, winH)
@@ -260,9 +308,33 @@
         cont4Scroll(totalRange, winH)
       } else if(content == 'cont4Box') {
         cont4BoxLeft(totalRange, winH)
+      } else if(content == 'cont6') {
+        cont6Scroll(totalRange, winH)
       } 
     }
   
+    /* intro scroll */
+    function introScroll(totalRange, winH) {
+      let introRange = totalRange * 4
+      if (winH >= introOffset && winH <= introOffset + introH) {
+        if (winH <= introH / 4) {
+          $('.intro1').css({'opacity':1 - introRange})
+          $('.intro2').css({'opacity':0 + introRange})
+          $('.intro2').removeClass('intro2-focus')
+        } else if (winH <= (introH / 4) * 2) {
+          $('.intro1').css({'opacity':0})
+          $('.intro2').css({'opacity':1})
+          $('.intro2').addClass('intro2-focus')
+        } else if (winH <= (introH / 4) * 3) {
+          $('.intro2').css({'opacity':1 - (introRange / 3)})
+          $('.intro3').css({'opacity':(-2) + introRange})
+          $('.intro').removeClass('intro-over')
+        } else if (winH <= introH) {
+          $('.intro').addClass('intro-over')
+        }
+      }
+    }
+
     /* cont1 - scale */
     function cont1Scale(totalRange, winH) {
       if (winH >= cont1offset && winH <= cont1offset + cont1TopH) {
@@ -305,11 +377,8 @@
 
       if (winH >= cont2offset && winH <= cont2offset + flowBoxW) {
           if(widthRange <= (flowBoxW / 2) - (flowLastW / 2)) {
-            $('.cont2-box').css({'position':'fixed'})
-            $('.cont2-box').prop('style').removeProperty('transform');
             $('.cont2-flow').css({'transform':'translate(-'+ widthRange  +'px, -'+ totalRange * 50 +'%)'});
           } else {
-            $('.cont2-box').css({'position':'absolute', 'top':'auto', 'bottom':'0'})
             return
           }
       } else if (winH <= cont2offset){
@@ -317,7 +386,6 @@
         $('.cont2-flow').prop('style').removeProperty('transform');
         return
       } else {
-        $('.cont2-box').css({'position':'absolute', 'top':'0', 'bottom':'auto'}) 
         return
       }
     }
@@ -326,12 +394,13 @@
     function cont3Scale(totalRange, winH) {
       if (winH >= cont3offset && winH <= cont3offset + (cont3H / 2)) {
         if (totalRange <= 0.3) {
+          $('.cont3-back-img').removeClass('fix')
           $('.cont3-back-img').css({'top':'calc(100vh - '+ (100 - totalRange * 350) +'px)', 'transform':'scale('+ (0.7 + totalRange) +')'});
         } else {
           return;
         } 
       } else if (winH >= cont3offset + (cont3H / 2) && winH <= cont3offset + cont3H) {
-        $('.cont3-back-img').css({'top':'0', 'transform':'scale('+ (0.7 + totalRange) +')'});
+        $('.cont3-back-img').css({'top':'0', 'transform':'scale('+ (0.5 + totalRange) +')'});
         $('.cont3-back-img').addClass('fix')
       } else if (winH <= cont3offset) {
         $('.cont3-back-img').removeAttr('style');
@@ -343,7 +412,6 @@
     /* cont4 - backImg */
     function cont4Scroll(totalRange, winH) {
       if (winH >= cont4offset && winH <= cont4offset + (cont4H / 3)) {
-        $('.cont3-back-img').addClass('fix');
         $('.cont3-back-img').css({'top':'0','opacity':1 - (totalRange * 3)});
         cont4.removeClass('back-on');
         $('.cont4-txt').removeClass('back-on');
@@ -365,6 +433,7 @@
         if (((totalRange * 300) - 100) <= 100) {
           $('.cont5-back-img').css({'top':-(200 - (totalRange * 300)) +'px', 'transform':'scale('+ (0.7 + (totalRange / 2)) +')'});
         } else {
+          $('.cont5-back-img').css({'top':0, 'transform':'scale(1)'});
           return
         }
       } else {
@@ -374,7 +443,16 @@
       }
     }
 
-    /* cont3 - scale */
+    /* cont6 - rowSlide */
+    function cont6Scroll(totalRange, winH) {
+      let width1 = (historyBoxW * 2) / ((cont6offset + historyBoxW) - cont6offset)
+      let width2 = -(width1 * cont6offset)
+      let widthRange = (width1 * winH) + width2
+
+      if (winH >= cont6offset && winH <= cont6offset + cont6H) {
+        $('.history-box').css({'transform':'translate(-'+ widthRange +'px, 0'});
+      }
+    }
   </script>
 </body>
 </html>

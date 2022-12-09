@@ -211,9 +211,47 @@ html, body {
 }
 
 .intro {
+  position: relative;
+  width: 100%;
+  height: 400vh;
+  background: salmon;
+}
+.intro.intro-over .intro-list {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
+.intro .intro-list {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  background: salmon;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  font-size: 50px;
+}
+.intro .intro1 {
+  background: gray;
+  color: #fff;
+  opacity: 1;
+}
+.intro .intro2 {
+  background: green;
+}
+.intro .intro2 p {
+  transition: 0.5s;
+}
+.intro .intro2 .intro2-txt-sub {
+  opacity: 0;
+}
+.intro .intro2.intro2-focus .intro2-txt-tit {
+  transform: translateY(-30px);
+}
+.intro .intro2.intro2-focus .intro2-txt-sub {
+  opacity: 1;
 }
 
 .cont1 {
@@ -327,18 +365,18 @@ html, body {
 }
 
 .cont2 {
-  position: relative;
   width: 100%;
   height: auto;
   background: #D6D6CE;
-  overflow: hidden;
 }
 .cont2 .cont2-box {
-  position: relative;
-  left: 0;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
+  padding: 180px;
   box-sizing: border-box;
 }
 .cont2 .cont2-flow {
@@ -349,9 +387,6 @@ html, body {
 }
 .cont2 .flow-list {
   background: #fff;
-}
-.cont2 .flow-list.flow1 {
-  margin-top: 100px;
 }
 .cont2 .flow-list.flow2 {
   margin: 400px 0 0 300px;
@@ -421,6 +456,32 @@ html, body {
 }
 .cont5 .cont5-full {
   background: #000;
+}
+
+.cont6 {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
+.cont6 .history {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}
+.cont6 .history-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.cont6 .history-box .history-list {
+  width: 500px;
+  height: 100%;
+  background: white;
+  margin-left: 150px;
 }
 
 .full-bg-box {
