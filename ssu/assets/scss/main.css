@@ -202,28 +202,84 @@ html, body {
   height: 100%;
 }
 
+.hidden {
+  font-size: 0px;
+}
+
 .tit01 {
+  font-size: 22px;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+}
+
+.tit02 {
   font-size: 20px;
   font-weight: 400;
-  line-height: 24px;
-  color: #F26E25;
+  line-height: 40px;
   letter-spacing: 0.1em;
+  color: #F26E25;
+}
+
+.cont-txt-tit {
+  margin-top: 10px;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0.08em;
+}
+
+.cont-txt-sub {
+  margin-top: 22px;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.005em;
+}
+
+.scroll-box {
+  position: fixed;
+  bottom: 53px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFFFFF;
+  background: url(../../assets/img/scroll_down.png) no-repeat center bottom/17px auto;
+  z-index: 99;
+}
+.scroll-box .scroll-down {
+  display: inline-block;
+  padding-bottom: 17px;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+}
+.scroll-box.scroll-inpro {
+  width: 50px;
+  height: 36px;
+  background: url(../../assets/img/scroll_top.png) no-repeat center center/100% auto;
+}
+.scroll-box.scroll-inpro .scroll-down {
+  display: none;
+}
+.scroll-box.back-white {
+  background-image: url(../../assets/img/scroll_top2.png);
 }
 
 .intro {
   position: relative;
   width: 100%;
-  height: 400vh;
-  background: salmon;
+  height: 500vh;
+  background: #000000;
 }
-.intro.intro-over .intro-list {
-  position: absolute;
-  top: auto;
+.intro.intro-on .intro-list {
+  position: fixed;
+  top: 0;
   bottom: 0;
 }
+.intro .tit02 {
+  color: #FFFFFF;
+}
 .intro .intro-list {
-  position: fixed;
+  position: absolute;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -232,37 +288,70 @@ html, body {
   left: 0;
   opacity: 0;
   font-size: 50px;
+  color: #FFFFFF;
+}
+.intro .intro-list .intro-tit {
+  position: relative;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 1;
+}
+.intro .intro-list .intro-sub {
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+  transition: 0.5s;
+  letter-spacing: 0.01em;
+  text-align: center;
 }
 .intro .intro1 {
-  background: gray;
-  color: #fff;
+  position: relative;
+  background: transparent;
   opacity: 1;
+  background: url(../../assets/img/intro_bg.png) no-repeat center 7%/100%;
+}
+.intro .intro1 .intro-tit-sub {
+  font-size: 62px;
+  line-height: 68px;
+  letter-spacing: 0.08em;
+}
+.intro .intro1 .intro-dim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.47);
 }
 .intro .intro2 {
-  background: green;
-}
-.intro .intro2 p {
+  background: #000000;
   transition: 0.5s;
 }
-.intro .intro2 .intro2-txt-sub {
+.intro .intro2 .intro-tit {
+  transition: 0.5s;
+}
+.intro .intro2 .intro-tit .intro-tit-sub {
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 0.08em;
+}
+.intro .intro2 .intro-sub {
   opacity: 0;
 }
-.intro .intro2.intro2-focus .intro2-txt-tit {
-  transform: translateY(-30px);
+.intro .intro2.intro2-focus .intro-tit {
+  transform: translateY(-40px);
 }
-.intro .intro2.intro2-focus .intro2-txt-sub {
+.intro .intro2.intro2-focus .intro-sub {
   opacity: 1;
+}
+.intro .intro3 {
+  background: #000000;
 }
 
 .cont1 {
   position: relative;
   width: 100%;
   height: 200vh;
-  background: #fff;
+  background: #FFFFFF;
   font-weight: 400;
-}
-.cont1 .tit01 {
-  margin-top: 150px;
 }
 .cont1 .cont1-top {
   position: -webkit-sticky;
@@ -274,7 +363,7 @@ html, body {
   overflow-x: hidden;
   text-align: center;
 }
-.cont1 .cont1-film {
+.cont1 .cont1-top .cont1-film {
   position: relative;
   display: flex;
   width: 200%;
@@ -289,16 +378,24 @@ html, body {
   width: 50%;
   height: 100%;
 }
-.cont1 .film-box .back-img {
+.cont1 .film-box:after {
   position: absolute;
-  width: 100%;
+  display: block;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 41%;
+  height: 155px;
+  background: url(../../assets/img/Sulwhasoo_logo.png) no-repeat center center/100%;
+}
+.cont1 .film-box .full-bg-img {
+  position: absolute;
   height: 100%;
-  bottom: 170px;
-  left: 0;
-  transform: scale(0.25);
+  top: auto;
+  bottom: 17%;
   transform-origin: bottom center;
   background: url(../../assets/img/lazy1.jpg) no-repeat center bottom/cover;
-  transition: 0.5s;
   z-index: 1;
 }
 .cont1 .film-box-next {
@@ -306,30 +403,20 @@ html, body {
   background: #171717;
   text-align: left;
 }
-.cont1 .film-box-next .film-txt-tit {
-  color: #fff;
+.cont1 .film-box-next:after {
+  display: none;
+}
+.cont1 .film-box-next .film-txt {
+  margin-top: 10.8%;
+  padding-right: 20%;
+}
+.cont1 .film-box-next .cont-txt-tit {
+  color: #FFFFFF;
 }
 .cont1 .film-txt {
+  margin-top: 7.2%;
   position: relative;
   color: #171717;
-}
-.cont1 .film-txt .film-txt-tit {
-  margin-top: 10px;
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: 0.08em;
-}
-.cont1 .film-txt .film-txt-cont {
-  margin-top: 22px;
-  font-size: 20px;
-  line-height: 20px;
-  letter-spacing: 0.005em;
-}
-.cont1 .film-txt .film-txt-cont span {
-  display: block;
-  margin-top: 10px;
-  font-size: 20px;
-  line-height: 20px;
 }
 .cont1 .film-txt button {
   margin-top: 32px;
@@ -345,15 +432,20 @@ html, body {
   right: 0;
   margin-top: 0;
   padding: 10px 10px 10px 30px;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  background: url(../../assets/img/arrow_prev.png) no-repeat 9px center/10px auto;
 }
 .cont1 .cont1-full {
   height: 50%;
 }
+.cont1 .cont1-full .cont-txt-tit {
+  font-size: 52px;
+  line-height: 60px;
+}
 .cont1 .cont1-full .cont1-full-dim {
   position: absolute;
-  display: block;
+  display: none;
   content: "";
   width: 100%;
   height: 100%;
@@ -367,7 +459,7 @@ html, body {
 .cont2 {
   width: 100%;
   height: auto;
-  background: #D6D6CE;
+  background: #000000;
 }
 .cont2 .cont2-box {
   position: -webkit-sticky;
@@ -376,23 +468,55 @@ html, body {
   left: 0;
   width: 100%;
   height: 100vh;
-  padding: 180px;
   box-sizing: border-box;
 }
 .cont2 .cont2-flow {
+  height: 100vh;
+}
+.cont2 .flow-list-box {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 100vh;
+  height: 100%;
 }
 .cont2 .flow-list {
-  background: #fff;
+  position: relative;
+  height: 100%;
+  margin: 15% 0 0 7%;
+}
+.cont2 .flow-list img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.cont2 .flow-list.flow1 {
+  width: 50%;
+  margin: 0 0 0 10%;
 }
 .cont2 .flow-list.flow2 {
-  margin: 400px 0 0 300px;
+  width: 30%;
 }
 .cont2 .flow-list.flow3 {
-  margin: 800px 0 0 300px;
+  width: 50%;
+  margin-top: 30%;
+}
+@media (max-width: 767px) {
+  .cont2 .flow-list {
+    margin: 30% 0 0 5%;
+  }
+  .cont2 .flow-list.flow1 {
+    width: 150%;
+    margin: 0 0 0 10%;
+  }
+  .cont2 .flow-list.flow2 {
+    width: 80%;
+  }
+  .cont2 .flow-list.flow3 {
+    width: 150%;
+    margin-top: 60%;
+  }
 }
 
 .cont3 {
@@ -400,21 +524,23 @@ html, body {
   width: 100%;
   height: 200vh;
   box-sizing: border-box;
+  background: #000000;
+  color: #FFFFFF;
 }
-.cont3 .cont3-box {
+.cont3 .img-flexbox {
   padding: 10% 20%;
-  height: 100vh;
 }
 .cont3 .cont3-back-img {
+  position: absolute;
   top: calc(100vh - 100px);
-  background-image: url(../../assets/img/lazy1.jpg) no-repeat center bottom/cover;
+  background: url(../../assets/img/lazy1.jpg) no-repeat center bottom/cover;
 }
 
 .cont4 {
   position: relative;
   height: 300vh;
 }
-.cont4.back-on .cont4-txt {
+.cont4.back-on .cont4-full {
   background: url(../../assets/img/lazy3.jpg) no-repeat center center/cover;
 }
 .cont4.back-on .cont4-back {
@@ -422,9 +548,9 @@ html, body {
 }
 .cont4 > div {
   height: 100vh;
-  font-size: 50px;
-  font-weight: 700;
-  color: #fff;
+}
+.cont4 .full-bg-box {
+  padding-left: 7.5%;
 }
 .cont4 .cont4-back {
   position: -webkit-sticky;
@@ -478,10 +604,9 @@ html, body {
   height: 100%;
 }
 .cont6 .history-box .history-list {
-  width: 500px;
+  width: 30%;
   height: 100%;
   background: white;
-  margin-left: 150px;
 }
 
 .full-bg-box {
@@ -492,7 +617,7 @@ html, body {
   padding-left: 15%;
   height: 100%;
   background: transparent;
-  color: #fff;
+  color: #FFFFFF;
 }
 .full-bg-box span {
   display: block;
@@ -500,6 +625,9 @@ html, body {
 .full-bg-box .full-bg-txt {
   position: relative;
   z-index: 2;
+}
+.full-bg-box .tit02 {
+  color: #FFFFFF;
 }
 .full-bg-box .full-bg-tit {
   font-size: 52px;
@@ -510,7 +638,8 @@ html, body {
 .full-bg-box .full-bg-sub {
   margin-top: 40px;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
 }
 
 .full-bg-img {
@@ -520,11 +649,25 @@ html, body {
   width: 100%;
   height: 100vh;
   background: url(../../assets/img/lazy1.jpg) no-repeat center bottom/cover;
-  transform: scale(0.7);
+  transform: scale(0.3);
   transform-origin: center top;
   opacity: 1;
   z-index: 1;
 }
 .full-bg-img.fix {
   position: fixed;
+}
+
+.story-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 54px;
+  height: 100vh;
+}
+.story-box .cont-txt-tit {
+  margin-top: 5px;
+}
+.story-box .cont-txt-sub {
+  margin-top: 30px;
 }/*# sourceMappingURL=main.css.map */
