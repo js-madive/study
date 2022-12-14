@@ -361,9 +361,9 @@
       cont6Scroll(winH)
 
       // scrollTop, obgTop, obgHeight, contentName
-      Motion(winH, introOffset, introH, 'intro')
 
       if (winW > 640) {
+        Motion(winH, introOffset, introH, 'intro')
         Motion(winH, cont1offset, cont1TopH, 'cont1Top')
         Motion(winH, cont1Bottom, cont1BotH, 'cont1Bottom')
         Motion(winH, cont2offset, flowBoxW, 'cont2')
@@ -491,8 +491,8 @@
     /* Mcont1 - scale */
     function Mcont1Scroll(totalRange, winH) {
       if(winH >= cont1offset && winH <= cont2offset) {
-        $('.m-cont1-video video').attr('autoplay', false)
         if (winH >= cont1offset && winH <= cont1offset + cont1TopH) {
+          $('.m-cont1-video video').attr('autoplay', false)
           if (totalRange <= 1) {
             $('.m-cont1-video').css({'position':'fixed','top':'0','bottom':'auto','opacity':totalRange});
             $('.cont1-back-img').css({'position':'fixed','opacity':(1 - totalRange)})
