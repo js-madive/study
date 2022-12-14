@@ -606,7 +606,7 @@
         if (winH >= cont4offset && winH <= cont4offset + (cont4H / 3)) {
           cont4.addClass('back-on');
           $('.cont4-video').addClass('video-show')
-          $('.cont3-back-img').css({'top':'0','opacity':1 - (totalRange * 3)});
+          $('.cont3-back-img').css({'top':'0','opacity':1 - ((totalRange * 3) * 2)});
           $('.cont4-box').removeClass('relative')
           console.log('q1212312312')
         } else if(winH >= cont4offset + (cont4H / 3) * 2) {
@@ -620,6 +620,7 @@
       } else {
           //$('.cont3-back-img').css({'opacity':1});
           //$('.cont4-full-back').css({'top':'auto','bottom':0})
+          $('.cont4-video').removeClass('video-show')
           cont4.removeClass('back-on');
           return 
       }
