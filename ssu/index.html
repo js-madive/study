@@ -490,24 +490,26 @@
 
     /* Mcont1 - scale */
     function Mcont1Scroll(totalRange, winH) {
-      if (winH >= cont1offset && winH <= cont1offset + cont1TopH) {
+      if(winH >= cont1offset && winH <= cont2offset) {
         $('.m-cont1-video video').attr('autoplay', false)
-        if (totalRange <= 1) {
-          $('.m-cont1-video').css({'position':'fixed','top':'0','bottom':'auto','opacity':totalRange});
-          $('.cont1-back-img').css({'position':'fixed','opacity':(1 - totalRange)})
+        if (winH >= cont1offset && winH <= cont1offset + cont1TopH) {
+          if (totalRange <= 1) {
+            $('.m-cont1-video').css({'position':'fixed','top':'0','bottom':'auto','opacity':totalRange});
+            $('.cont1-back-img').css({'position':'fixed','opacity':(1 - totalRange)})
+          } else {
+            return;
+          } 
+        } else if (winH >= cont1offset + cont1TopH) {
+          $('.cont1-back-img').css({'position':'absolute','opacity':1})
+          $('.m-cont1-video').css({'position':'absolute','top':'auto','bottom':'0','opacity':1});
         } else {
-          return;
-        } 
-      } else if (winH >= cont1offset + cont1TopH) {
-        $('.cont1-back-img').css({'position':'absolute','opacity':1})
-        $('.m-cont1-video').css({'position':'absolute','top':'auto','bottom':'0','opacity':1});
-        $('.m-cont1-video video').attr('autoplay', true)
-        $('.m-cont1-video').attr('ododo')
+          $('.m-cont1-video').removeAttr('style')
+          return
+        }
       } else {
         $('.cont1-back-img').css({'position':'absolute','opacity':1})
-        $('.m-cont1-video').removeAttr('style')
-        $('.m-cont1-video').attr('ododo')
         $('.m-cont1-video video').attr('autoplay', true)
+        return
       }
     }
   
@@ -618,18 +620,15 @@
           cont4.removeClass('back-on');
           $('.cont4-box').removeClass('relative')
           $('.cont4-video').addClass('video-show')
-          $('.cont4-video video').attr('autoplay', false)
           $('.cont4 .full-bg-txt').css({'opacity':1})
         } else if(winH >= cont4offset + (cont4H / 4) * 2) {
           $('.cont4-box').addClass('relative')
-          $('.cont4-video video').attr('autoplay', true)
         } else if(winH <= cont4offset) {
          $('.cont4-video').removeClass('video-show')
         }
       } else {
         $('.cont3-back-img').addClass('fix')
         $('.cont4 .full-bg-txt').removeAttr('style')
-        $('.cont4-video video').attr('autoplay', true)
         cont4.removeClass('back-on');
         return 
       }
