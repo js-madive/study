@@ -612,21 +612,24 @@
     /* Mcont4 - backImg */
     function Mcont4Scroll(totalRange, winH) {
       if(winH >= cont4offset && winH <= cont4offset + cont4H) {
-        if (winH >= cont4offset && winH <= cont4offset + (cont4H / 4)) {
+        if (winH > cont4offset && winH <= cont4offset + (cont4H / 4)) {
           $('.cont3-back-img').removeClass('fix')
           $('.cont3-back-img').css({'top':'0','opacity':1 - ((totalRange * 3) * 2)});
           cont4.removeClass('back-on');
           $('.cont4-box').removeClass('relative')
           $('.cont4-video').addClass('video-show')
+          $('.cont4-video video').attr('autoplay', false)
           $('.cont4 .full-bg-txt').css({'opacity':1})
         } else if(winH >= cont4offset + (cont4H / 4) * 2) {
           $('.cont4-box').addClass('relative')
+          $('.cont4-video video').attr('autoplay', true)
         } else if(winH <= cont4offset) {
          $('.cont4-video').removeClass('video-show')
         }
       } else {
         $('.cont3-back-img').addClass('fix')
         $('.cont4 .full-bg-txt').removeAttr('style')
+        $('.cont4-video video').attr('autoplay', true)
         cont4.removeClass('back-on');
         return 
       }
