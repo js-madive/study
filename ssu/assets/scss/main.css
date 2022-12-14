@@ -588,8 +588,7 @@ html, body {
   width: 41%;
 }
 .rebloom .cont4 .cont4-full {
-  align-items: center;
-  padding-left: 0;
+  padding-left: 7.5%;
 }
 .rebloom .cont4 .cont4-full-back {
   position: absolute;
@@ -856,28 +855,30 @@ html, body {
     top: 100vh;
   }
   .rebloom .cont4 {
-    height: 200vh;
-    padding-top: 0;
+    padding: 0 0 100vh;
   }
   .rebloom .cont4 .cont4-box {
-    width: 100%;
     display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
   .rebloom .cont4 .cont4-box .cont4-full,
 .rebloom .cont4 .cont4-box .cont4-story {
     width: 100%;
+    height: 100vh;
   }
-  .rebloom .cont4 .cont4-box.relative {
-    position: relative;
+  .rebloom .cont4 .cont4-box.full-fixed {
+    position: fixed;
     top: 0;
     left: 0;
   }
   .rebloom .cont4 .full-bg-box .full-bg-txt {
     padding-left: 30px;
-    opacity: 0;
-    transition: 1s;
   }
-  .rebloom .cont4 .cont4-full .full-video {
+  .rebloom .cont4 .cont4-full-back .full-video {
     width: 100%;
   }
   .rebloom .full-video video {
