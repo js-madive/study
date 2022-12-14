@@ -568,13 +568,11 @@ html, body {
 .rebloom .cont4.back-on .cont4-full-back .full-video {
   width: 100%;
 }
-.rebloom .cont4 > div {
-  height: 100vh;
-}
 .rebloom .cont4 .cont4-box {
   top: 100vh;
   left: 0;
   width: 200%;
+  height: 100vh;
   display: flex;
   z-index: -1;
 }
@@ -857,6 +855,10 @@ html, body {
   .rebloom .cont3 .cont3-back-img {
     top: 100vh;
   }
+  .rebloom .cont4 {
+    height: 200vh;
+    padding-top: 0;
+  }
   .rebloom .cont4 .cont4-box {
     width: 100%;
     display: block;
@@ -872,6 +874,8 @@ html, body {
   }
   .rebloom .cont4 .full-bg-box .full-bg-txt {
     padding-left: 30px;
+    opacity: 0;
+    transition: 1s;
   }
   .rebloom .cont4 .cont4-full .full-video {
     width: 100%;

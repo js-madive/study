@@ -399,13 +399,11 @@ html,body {
         }
       }
     }
-    &>div {
-      height:calc(300vh / 3);
-    }
     .cont4-box {
       top:100vh;
       left:0;
       width:200%;
+      height:calc(300vh / 3);
       display:flex;
       z-index:-1;
       .cont4-full,
@@ -714,6 +712,8 @@ html,body {
       }
     }
     .cont4 {
+      height:200vh;
+      padding-top:0;
       .cont4-box {
         width:100%;
         display:block;
@@ -730,6 +730,8 @@ html,body {
       .full-bg-box {
         .full-bg-txt {
           padding-left:30px;
+          opacity:0;
+          transition:1s;
         }
       }
       .cont4-full {
