@@ -619,7 +619,6 @@
         $('.cont3-back-img').removeAttr('style');
         $('.cont3-story').removeClass('story-fixed');
         $('.cont3-story').removeAttr('style')
-        cont4.addClass('back-on');
       } else {
         $('.cont3-story').removeClass('story-fixed');
         return
@@ -629,22 +628,23 @@
     /* Mcont4 - backImg */
     function Mcont4Scroll(totalRange, winH) {
       if(winH >= cont4offset && winH <= cont4offset + cont4H) {
-        if (winH > cont4offset && winH <= cont4offset + (cont4H / 3)) {
+        if (winH >= cont4offset && winH <= cont4offset + (cont4H / 3)) {
+          $('.cont3-back-img').css({'top':'0','opacity':1 - ((totalRange * 3) * 2)})
+          $('.cont4-box').addClass('full-fixed')
+          if ((totalRange * 3) <= 0.5) {
+            $('.cont4-full-back .video-dim').css({'opacity':1 - (totalRange * 3)})
+          } else {
+            $('.cont4-full-back .video-dim').css({'opacity':0.5})
+            return
+          }
+        } else if(winH >= cont4offset + (cont4H / 3)) {
           $('.cont3-back-img').removeClass('fix')
-          $('.cont3-back-img').css({'top':'0','opacity':1 - ((totalRange * 3) * 2)});
-          cont4.removeClass('back-on');
-          //$('.cont4-full').addClass('full-fixed')
-          console.log('dd')
-        } else if(winH >= cont4offset + (cont4H / 3) * 2) {
-          $('.cont4-full').removeClass('full-fixed')
-          console.log('dddd')
-        } else if(winH <= cont4offset) {
-         $('.cont4-video').removeClass('video-show')
+          $('.cont4-box').removeClass('full-fixed')
         }
       } else {
         $('.cont3-back-img').addClass('fix')
         $('.cont4 .full-bg-txt').removeAttr('style')
-        cont4.removeClass('back-on');
+        $('.cont4-box').removeClass('full-fixed')
         return 
       }
     }
