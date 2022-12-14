@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="full-video intro-video">
-          <video width="100%" height="auto" autoplay loop muted controls>
+          <video width="100%" height="auto" autoplay loop muted controls playsinline>
             <source src="assets/video/ROSE_INTERVIEW.mp4" type="video/mp4">
           </video>
           <div class="video-dim"></div>
@@ -127,7 +127,7 @@
               </div>
               <div class="cont1-back-img scale-bg-img">
                 <div class="full-video cont1-video">
-                  <video width="100%" height="auto" autoplay loop muted controls>
+                  <video width="100%" height="auto" autoplay loop muted controls playsinline>
                     <source src="assets/video/ROSE_SOIL.mp4" type="video/mp4">
                   </video>
                   <div class="video-dim"></div>
@@ -152,7 +152,7 @@
           </div>
         </div>
         <div class="m-video m-cont1-video">
-          <video width="100%" height="auto" autoplay loop muted controls>
+          <video width="100%" height="auto" autoplay loop muted controls playsinline>
             <source src="assets/video/ROSE_SOIL.mp4" type="video/mp4">
           </video>
           <div class="video-dim"></div>
@@ -182,7 +182,7 @@
         </div>
         <div class="cont3-back-img scale-bg-img">
           <div class="full-video intro-video">
-            <video width="100%" height="auto" autoplay loop muted controls>
+            <video width="100%" height="auto" autoplay loop muted controls playsinline>
               <source src="assets/video/ROSE_SOIL2.mp4" type="video/mp4">
             </video>
             <div class="video-dim"></div>
@@ -202,7 +202,7 @@
             </div>
             <div class="cont4-full-back">
               <div class="full-video cont4-video">
-                <video width="100%" height="auto" autoplay loop muted controls>
+                <video width="100%" height="auto" autoplay loop muted controls playsinline>
                   <source src="assets/video/ROSE_SNOW.mp4" type="video/mp4">
                 </video>
                 <div class="video-dim"></div>
@@ -238,7 +238,7 @@
         </div>
         <div class="cont5-back-img scale-bg-img">
           <div class="full-video cont5-video">
-            <video width="100%" height="auto" autoplay loop muted controls>
+            <video width="100%" height="auto" autoplay loop muted controls playsinline>
               <source src="assets/video/ROSE_FLOWER.mp4" type="video/mp4">
             </video>
             <div class="video-dim"></div>
@@ -492,7 +492,7 @@
     function Mcont1Scroll(totalRange, winH) {
       if(winH >= cont1offset && winH <= cont2offset) {
         if (winH >= cont1offset && winH <= cont1offset + cont1TopH) {
-          $('.m-cont1-video video').attr('autoplay', false)
+          //$('.m-cont1-video video').attr('autoplay', false)
           if (totalRange <= 1) {
             $('.m-cont1-video').css({'position':'fixed','top':'0','bottom':'auto','opacity':totalRange});
             $('.cont1-back-img').css({'position':'fixed','opacity':(1 - totalRange)})
@@ -508,7 +508,7 @@
         }
       } else {
         $('.cont1-back-img').css({'position':'absolute','opacity':1})
-        $('.m-cont1-video video').attr('autoplay', true)
+        //$('.m-cont1-video video').attr('autoplay', true)
         return
       }
     }
