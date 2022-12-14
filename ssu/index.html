@@ -621,10 +621,11 @@
           $('.cont4 .full-bg-txt').css({'opacity':1})
         } else if(winH >= cont4offset + (cont4H / 4) * 2) {
           $('.cont4-box').addClass('relative')
+        } else if(winH <= cont4offset) {
+         $('.cont4-video').removeClass('video-show')
         }
       } else {
         $('.cont3-back-img').addClass('fix')
-        $('.cont4-video').removeClass('video-show')
         $('.cont4 .full-bg-txt').removeAttr('style')
         cont4.removeClass('back-on');
         return 
